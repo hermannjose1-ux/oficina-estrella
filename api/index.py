@@ -142,4 +142,7 @@ def main(page: ft.Page):
             except: pass
             time.sleep(2)
 
-app = ft.app(target=main, view=ft.AppView.WEB_BROWSER)
+# ... todo tu código anterior igual ...
+
+# CAMBIO FINAL:
+app = ft.app(target=main, export_asgi=True)
