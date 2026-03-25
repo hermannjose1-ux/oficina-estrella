@@ -5,7 +5,7 @@ from supabase import create_client
 URL = "https://elikcpilcoujjcoftzmw.supabase.co"
 KEY = "sb_publishable_cJD5fnogfagfdQ5NI-yzTQ_hv61swRw" 
 supabase = create_client(URL, KEY)
-MAIL_ADMIN = "tu_mail_aca@ejemplo.com"
+MAIL_ADMIN = "hermannjose1@gmail.com"
 
 def main(page: ft.Page):
     page.title = "Oficina Estrella"
