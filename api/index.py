@@ -61,8 +61,6 @@ def main(page: ft.Page):
     )
     cargar_mensajes()
 
-# ... (todo tu código de la oficina arriba) ...
-
 import flet_fastapi
 import fastapi
 
