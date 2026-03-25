@@ -3,7 +3,7 @@ from supabase import create_client
 
 # Usamos una variable global para el cliente
 URL = "https://elikcpilcoujjcoftzmw.supabase.co"
-KEY = "TU_CLAVE_ANON_ACA"
+KEY = "sb_publishable_cJD5fnogfagfdQ5NI-yzTQ_hv61swRw"
 supabase = create_client(URL, KEY)
 
 def main(page: ft.Page):
