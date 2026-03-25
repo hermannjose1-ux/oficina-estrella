@@ -1,5 +1,5 @@
-flet==0.21.0
-flet-fastapi==0.21.0
-supabase==2.4.0
-fastapi==0.110.0
-uvicorn==0.28.0
+flet
+flet-fastapi
+supabase
+fastapi
+uvicorn
