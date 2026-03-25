@@ -142,4 +142,4 @@ def main(page: ft.Page):
             except: pass
             time.sleep(2)
 
-ft.app(target=main, view=ft.AppView.WEB_BROWSER)
+app = ft.app(target=main, view=ft.AppView.WEB_BROWSER)
