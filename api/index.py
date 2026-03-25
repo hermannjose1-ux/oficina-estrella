@@ -3,6 +3,8 @@ import flet_fastapi
 import fastapi
 from supabase import create_client
 
+# ... el resto de tu código igual ...
+
 # --- CONFIGURACIÓN ---
 URL = "https://elikcpilcoujjcoftzmw.supabase.co"
 KEY = "sb_publishable_cJD5fnogfagfdQ5NI-yzTQ_hv61swRw"
