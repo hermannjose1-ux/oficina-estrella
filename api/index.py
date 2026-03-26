@@ -2,7 +2,7 @@ import flet as ft
 import flet_fastapi
 import fastapi
 
-# 1. Iniciamos el motor web
+# 1. Definimos la app principal
 app = fastapi.FastAPI()
 
 def main(page: ft.Page):
@@ -11,17 +11,16 @@ def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     
-    # Diseño ultra-limpio para evitar errores de renderizado
+    # Renderizado sencillo para que no se quede "pensando"
     page.add(
         ft.Column([
-            ft.Icon(name=ft.icons.TERMINAL_ROUNDED, color="green", size=60),
-            ft.Text("SISTEMA OPERATIVO: ONLINE", size=28, weight="bold"),
-            ft.Text("Vercel y Flet están sincronizados.", color="white70"),
-            ft.Divider(),
-            ft.Text("Esperando comandos...", italic=True, size=14)
+            ft.Icon(name=ft.icons.LIGHTBULB_ROUNDED, color="yellow", size=60),
+            ft.Text("SISTEMA ONLINE", size=28, weight="bold"),
+            ft.Text("Renderizado vía HTML puro", color="white70"),
         ], horizontal_alignment=ft.CrossAxisAlignment.CENTER)
     )
     page.update()
 
-# 2. Montamos la app de forma que Vercel la entienda al 100%
-app.mount("/", flet_fastapi.app(main))
+# 2. CONFIGURACIÓN FINAL:
+# web_renderer=ft.WebRenderer.HTML es la clave para que Vercel no bloquee la pantalla
+app.mount("/", flet_fastapi.app(main, web_renderer=ft.WebRenderer.HTML))
