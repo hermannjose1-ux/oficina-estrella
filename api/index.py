@@ -1,29 +1,41 @@
 import flet as ft
 import flet_fastapi
+import fastapi
+from fastapi.middleware.cors import CORSMiddleware
 
-# Definimos la función principal
-async def main(page: ft.Page):
+# 1. Creamos la base del servidor
+app = fastapi.FastAPI()
+
+# 2. Le decimos al servidor que deje pasar los datos (Evita el gris)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+def main(page: ft.Page):
     page.title = "Oficina Estrella"
     page.theme_mode = ft.ThemeMode.DARK
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     
-    # Agregamos el contenido
+    # Diseño de la oficina
     page.add(
         ft.Container(
             content=ft.Column([
-                ft.Icon(name=ft.icons.WAVEOUT_OUTLINED, color="cyan", size=50),
+                ft.Icon(name=ft.icons.LOCK_OPEN_ROUNDED, color="green", size=50),
                 ft.Text("OFICINA ESTRELLA", size=32, weight="bold"),
-                ft.Text("CONEXIÓN EXITOSA", color="green", size=20),
+                ft.Text("CONEXIÓN ESTABLE", color="green", size=20),
                 ft.Divider(),
-                ft.Text("Esperando órdenes del operador...", italic=True, color="white70")
+                ft.ElevatedButton("ENTRAR AL SISTEMA", on_click=lambda _: print("Click")),
             ], horizontal_alignment=ft.CrossAxisAlignment.CENTER),
-            padding=20,
-            border_radius=15,
-            bgcolor=ft.colors.SURFACE_VARIANT
+            padding=40,
+            bgcolor="#1e1e26",
+            border_radius=20,
         )
     )
     page.update()
 
-# Esta es la forma exacta que Vercel necesita para no quedarse "cargando"
-app = flet_fastapi.app(main)
+# 3. Montamos Flet sobre el servidor FastAPI
+app.mount("/", flet_fastapi.app(main))
