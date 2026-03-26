@@ -7,9 +7,10 @@ def main(page: ft.Page):
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     
     page.add(
-        ft.Icon(name=ft.icons.BOLT, color="yellow", size=50),
-        ft.Text("¡OFICINA ONLINE!", size=32, weight="bold"),
-        ft.Text("Seguridad configurada correctamente.", color="green")
+        ft.Text("🚀 OFICINA ESTRELLA", size=30, weight="bold"),
+        ft.Text("Si ves esto, el servidor está VIVO.", color="green")
     )
+    page.update()
 
+# Esta línea es la única que Vercel necesita para conectar con el mundo
 app = flet_fastapi.app(main)
