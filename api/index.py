@@ -1,16 +1,29 @@
 import flet as ft
 import flet_fastapi
 
-def main(page: ft.Page):
+# Definimos la función principal
+async def main(page: ft.Page):
+    page.title = "Oficina Estrella"
     page.theme_mode = ft.ThemeMode.DARK
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     
+    # Agregamos el contenido
     page.add(
-        ft.Icon(name=ft.icons.CHECK_CIRCLE, color="green", size=50),
-        ft.Text("SISTEMA ONLINE", size=30, weight="bold"),
-        ft.Text("Flet y Vercel están hablando el mismo idioma.", color="white70")
+        ft.Container(
+            content=ft.Column([
+                ft.Icon(name=ft.icons.WAVEOUT_OUTLINED, color="cyan", size=50),
+                ft.Text("OFICINA ESTRELLA", size=32, weight="bold"),
+                ft.Text("CONEXIÓN EXITOSA", color="green", size=20),
+                ft.Divider(),
+                ft.Text("Esperando órdenes del operador...", italic=True, color="white70")
+            ], horizontal_alignment=ft.CrossAxisAlignment.CENTER),
+            padding=20,
+            border_radius=15,
+            bgcolor=ft.colors.SURFACE_VARIANT
+        )
     )
+    page.update()
 
-# ESTO ES LO QUE REEMPLAZA AL ERROR:
+# Esta es la forma exacta que Vercel necesita para no quedarse "cargando"
 app = flet_fastapi.app(main)
