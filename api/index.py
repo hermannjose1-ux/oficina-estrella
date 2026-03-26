@@ -1,9 +1,15 @@
 import flet as ft
+import flet_fastapi
 
 def main(page: ft.Page):
-    page.title = "Oficina Estrella"
     page.theme_mode = ft.ThemeMode.DARK
-    page.add(ft.Text("¡OFICINA ONLINE!", size=30, weight="bold"))
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    
+    page.add(
+        ft.Icon(name=ft.icons.BOLT, color="yellow", size=50),
+        ft.Text("¡OFICINA ONLINE!", size=32, weight="bold"),
+        ft.Text("Seguridad configurada correctamente.", color="green")
+    )
 
-# Cambiamos la forma de lanzar la app para que sea más compatible con Vercel
-ft.app(target=main, port=8000, view=ft.AppView.WEB_BROWSER)
+app = flet_fastapi.app(main)
