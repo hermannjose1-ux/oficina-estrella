@@ -1,23 +1,14 @@
 import flet as ft
+import flet_fastapi
 
 def main(page: ft.Page):
-    page.title = "Oficina Estrella"
     page.theme_mode = ft.ThemeMode.DARK
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    
     page.add(
-        ft.Container(
-            content=ft.Column([
-                ft.Icon(name=ft.icons.CELL_TOWER, color="blue", size=50),
-                ft.Text("OFICINA CONECTADA", size=30, weight="bold"),
-                ft.Text("La señal está llegando correctamente", color="white70")
-            ], horizontal_alignment=ft.CrossAxisAlignment.CENTER),
-            padding=20
-        )
+        ft.Icon(name=ft.icons.CHIP, color="cyan", size=50),
+        ft.Text("OFICINA ACTIVA", size=30, weight="bold"),
+        ft.Text("El servidor está procesando el código.", color="green")
     )
-    page.update()
 
-# FORZAMOS EL MODO WEB PURO
-if __name__ == "__main__":
-    ft.app(target=main, view=ft.AppView.WEB_BROWSER)
+app = flet_fastapi.app(main)
