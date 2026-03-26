@@ -1,4 +1,1 @@
 flet
-flet-fastapi
-fastapi
-uvicorn
